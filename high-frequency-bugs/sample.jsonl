@@ -1,0 +1,50 @@
+{
+    "task_id": "test/1",
+    "prompt": "Check the Java code in the<java></java>tag for any dead loops. Return the result in XML tag format with only one tag field, status: If there is a dead loop, status returns 1. If there is no dead loop, status returns 0. If unsure if there is a dead loop, status returns -1
+    <java>
+    public class ExampleDeadLoop {
+        public static void main(String[] args) {
+            int i = 0;
+            while (true) {
+                try {
+                    System.out.println("Processing: " + i);
+                    i++;
+                    if (i % 2 == 0) {
+                        throw new Exception("Force an exception to break the loop");
+                    }
+                    if (i >= 10) {
+                        break;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Caught an exception: " + e.getMessage());
+                    i = 0;
+                }
+            }
+            System.out.println("Loop ended.");
+        }
+    }
+    </java>
+    ",
+    "except": "1",
+    "description":"The program has a dead loop: when i=2, an exception is thrown, the location of the exception is captured, i is reset to 0, and it will not execute to the break stage at all, continuously looping!",
+    "language":"java",
+    "scenario":"dead loop bug, it may cause CPU 100%"
+},
+{
+    "task_id": "test/2",
+    "prompt": "Check the Java code in the<java></java>tag for any dead loops. Return the result in XML tag format with only one tag field, status: If there is a dead loop, status returns 1. If there is no dead loop, status returns 0. If unsure if there is a dead loop, status returns -1
+    <java>
+    int count = 0;
+    while(count < 10) {
+        if(count == 3) {
+            continue;
+        }
+        System.out.println(count);
+        count++;
+    </java>
+    ",
+    "except": "1",
+    "description":"This code contains a dead loop. When count is 3, the continue statement is executed, causing the loop to skip the count++ increment. As a result, count will remain 3 indefinitely, causing the loop condition count < 10 to always be true, which results in a dead loop.",
+    "language":"java",
+    "scenario":"dead loop bug, it may cause CPU 100%"
+}
