@@ -8,4 +8,4 @@
 
 ## 高级生成模版
 ### 数据建模
- * [数据库表设计](prompt-template/template-chinese.md)
+ * [数据库表设计生成](prompt-template/template-chinese.md)
