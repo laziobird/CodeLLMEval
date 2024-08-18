@@ -1,0 +1,66 @@
+{
+    "task_id": "test/1",
+    "prompt": "检查<java></java>标签里的Java代码，有没有死锁的情况。 返回XML标签格式结果，格式’<status></status>’ , 如果有，status返回1，没有status返回0，不知道status返回-1
+    <java>
+    public class SyncThread implements Runnable{
+
+        private Object obj1;
+        private Object obj2;
+
+        public SyncThread(Object o1, Object o2){
+            this.obj1=o1;
+            this.obj2=o2;
+        }
+
+        @Override
+        public void run() {
+            String name = Thread.currentThread().getName();
+            synchronized (obj1) {
+                System.out.println(name + " acquired lock on "+obj1);
+                work();
+                synchronized (obj2) {
+                    System.out.println("After, "+name + " acquired lock on "+obj2);
+                    work();
+                }
+                System.out.println(name + " released lock on "+obj2);
+            }
+            System.out.println(name + " released lock on "+obj1);
+            System.out.println(name + " finished execution.");
+        }
+        private void work() {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public class ThreadDeadTest {
+        public static void main(String[] args) throws InterruptedException {
+            Object obj1 = new Object();
+            Object obj2 = new Object();
+            Object obj3 = new Object();
+
+            Thread t1 = new Thread(new SyncThread(obj1, obj2), "t1");
+            Thread t2 = new Thread(new SyncThread(obj2, obj3), "t2");
+            Thread t3 = new Thread(new SyncThread(obj3, obj1), "t3");
+            t1.start();
+            Thread.sleep(1000);
+            t2.start();
+            Thread.sleep(1000);
+            t3.start();
+        }
+    }
+    </java>
+    ",
+    "except": "1",
+    "description":"线程 t1 持有 obj1 的锁，并尝试获取 obj2 的锁。\n
+      线程 t2 持有 obj2 的锁（在 t1 释放之前，如果 t2 已经开始执行），并尝试获取 obj3 的锁。\n
+      线程 t3 持有 obj3 的锁（在 t2 释放之前，如果 t3 已经开始执行），并尝试获取 obj1 的锁，但此时 obj1 被 t1 持有。\n
+      如果上述三个线程的执行时机恰好导致上述锁的顺序被锁定，那么就会形成一个死锁： \n
+      t1 等待 t2 释放 obj2 ,t2 等待 t3 释放 obj3, t3 等待 t1 释放 obj1  \n
+      由于每个线程都持有另一个线程需要的锁的一部分，并且都在等待其他线程释放它们需要的锁，因此没有线程能够继续执行，从而导致死锁",
+    "language":"java",
+    "scenario":"死锁循环等待，所有线程无法释放!"
+}
