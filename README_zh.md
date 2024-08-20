@@ -9,3 +9,7 @@
 ## 高级生成模版
 ### 数据建模
  * [数据库表设计生成](prompt-template/template-chinese.md)
+
+
+## HumanEval 的介绍
+ * pass@K [算法的详细推导](human-eval/passk-chinese.md)
