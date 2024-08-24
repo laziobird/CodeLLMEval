@@ -156,6 +156,8 @@ CREATE TABLE position_roles (
   FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 ```
+ * 参考的E-R图
+![image](https://github.com/user-attachments/assets/c30b66fd-34b2-4ef8-88a1-5a1135aa5f36)
 
 
 ## 产品文档的数据建模
@@ -175,3 +177,6 @@ CREATE TABLE position_roles (
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
 返回结果:  所有表所有字段和字段说明的SQL语句
 ```
+ * 参考的E-R图
+<img width="511" alt="image" src="https://github.com/user-attachments/assets/fbad470c-5c60-4846-94b1-af7bf636fa85">
+
