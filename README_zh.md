@@ -5,7 +5,7 @@
 ### [高频缺陷](high-frequency-bugs/sample-chinese.jsonl)
  * 死循环查找  
 对比测评效果  
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/d257beb8-3180-4edd-8d8e-e73708c4ba63">
+<img width="609" alt="image" src="https://github.com/user-attachments/assets/d257beb8-3180-4edd-8d8e-e73708c4ba63">
    
  * 多线程死锁查找
  * 内存泄露
@@ -53,7 +53,8 @@
 }
 ```
 对比测评效果  
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/eac4311e-da89-4131-ad5b-47e542f865d2">
+<img width="609" alt="image" src="https://github.com/user-attachments/assets/c9c618ec-31fb-46b3-aed5-2b61b661d867">
+
 
 
 ## 高级生成模版
