@@ -53,9 +53,7 @@
 }
 ```
 对比测评效果  
-<img width="609" alt="image" src="https://github.com/user-attachments/assets/c9c618ec-31fb-46b3-aed5-2b61b661d867">
-
-
+<img width="595" alt="image" src="https://github.com/user-attachments/assets/38bd79cd-c10f-4c55-89be-99e3ee843eae">
 
 ## 高级生成模版
 ### 数据建模
