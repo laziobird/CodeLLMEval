@@ -11,10 +11,10 @@
 | [基本逻辑错误]()                          |  逻辑严重不合理、数据明显错误等                              | 1  |
 | [并发数据不一致]()                          |  多线程情况不当操作导致数据不一致、脏数据                              | 1  |
  * 死循环查找  
-对比测评效果  
-<img width="609" alt="image" src="./assets/loop.jpg">
+对比测评效果
+![# loop](assets/loop.jpg)
  * 多线程死锁查找
- * 内存泄露  
+ * 内存泄露
 测评集demo
 ```
 {
@@ -59,7 +59,7 @@
 }
 ```
 对比测评效果  
-<img width="595" alt="image" src="./assets/loop.jpg">
+![# oom](assets/oom.jpg)
 
 ## 高级生成模版
 ### 数据建模
