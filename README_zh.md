@@ -11,8 +11,7 @@
 | [基本逻辑错误]()                          |  严重结果错误                              | 1  |
  * 死循环查找  
 对比测评效果  
-<img width="609" alt="image" src="https://github.com/user-attachments/assets/d257beb8-3180-4edd-8d8e-e73708c4ba63">
-   
+<img width="609" alt="image" src="./assets/loop.jpg">
  * 多线程死锁查找
  * 内存泄露  
 测评集demo
@@ -59,7 +58,7 @@
 }
 ```
 对比测评效果  
-<img width="595" alt="image" src="https://github.com/user-attachments/assets/38bd79cd-c10f-4c55-89be-99e3ee843eae">
+<img width="595" alt="image" src="./assets/loop.jpg">
 
 ## 高级生成模版
 ### 数据建模
