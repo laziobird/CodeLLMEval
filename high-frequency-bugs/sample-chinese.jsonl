@@ -114,4 +114,44 @@
       由于每个线程都持有另一个线程需要的锁的一部分，并且都在等待其他线程释放它们需要的锁，因此没有线程能够继续执行，从而导致死锁",
     "language":"java",
     "scenario":"死锁循环等待，所有线程无法释放!"
+}，
+{
+    "task_id": "test/4",
+    "prompt": "检查<.net></.net>标签里的.net代码，在高吞吐的场景下，判断有没有严重的内存泄露问题, 返回XML标签格式结果，格式’<status></status>’.如果有严重的内存泄露问题，status返回1，没有严重的内存泄露问题，status返回0，不知道有没有严重的内存泄露问题，status返回-1
+    <.net>
+    public static string GetAPIResp(string url, int waitTime = 3000)
+            {
+                string res = string.Empty;
+                try
+                {
+                    var httpClient = new HttpClient();
+                    HttpResponseMessage response = httpClient.GetAsync(url, HttpCompletionOption.ResponseContentRead).Result;
+                    if (response == null)
+                    {
+                        ...
+                    }
+                    else if (response.IsSuccessStatusCode)
+                    {
+                        Task<string> t = response.Content.ReadAsStringAsync();
+                        if (!t.Wait(iWaitTime))
+                        {
+                            return string.Empty;
+                        }
+
+                        return t.Result;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Error(ex.ToString());
+                }
+
+                return res;
+            }
+    </.net>
+    ",
+    "except": "1",
+    "description":"HttpClient的实例化：在每次调用GetAPIResp方法时都创建了HttpClient的新实例。在高吞吐量的场景下，这可能导致大量的HttpClient实例被创建，而这些实例可能会占用大量的资源，包括内存和端口。最终可能导致资源耗尽，Socket连接耗尽",
+    "language":".Net",
+    "scenario":"HttpClient没有复用，导致链接没有释放，内存泄露，严重导致系统崩溃重启"
 }
