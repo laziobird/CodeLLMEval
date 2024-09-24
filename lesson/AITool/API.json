@@ -1,0 +1,52 @@
+{
+    "item": [
+        {
+            "name": "Get all LsCategories",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8099/lsCategory",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8099",
+                    "path": [
+                        "lsCategory"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get LsCategory by ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8099/lsCategory/{{id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8099",
+                    "path": [
+                        "lsCategory",
+                        "{{id}}"
+                    ]
+                },
+                "url": {
+                    "query": [
+                        {
+                            "key": "id",
+                            "value": "{{id}}",
+                            "description": "ID of the LsCategory"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

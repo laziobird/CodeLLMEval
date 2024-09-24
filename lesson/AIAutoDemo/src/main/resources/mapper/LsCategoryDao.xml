@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.next.ai.dao.LsCategoryDao">
+
+    <resultMap type="com.next.ai.entity.LsCategory" id="LsCategoryMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="code" column="code" jdbcType="VARCHAR"/>
+        <result property="sort" column="sort" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="level" column="level" jdbcType="INTEGER"/>
+        <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+        <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+        <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+        <result property="createdUserId" column="created_user_id" jdbcType="INTEGER"/>
+        <result property="createdUserName" column="created_user_name" jdbcType="VARCHAR"/>
+        <result property="updatedUserId" column="updated_user_id" jdbcType="INTEGER"/>
+        <result property="updatedUserName" column="updated_user_name" jdbcType="VARCHAR"/>
+        <result property="version" column="version" jdbcType="INTEGER"/>
+        <result property="deleted" column="deleted" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into product.ls_category(name, code, sort, status, level, parent_id, created_at, updated_at, created_user_id, created_user_name, updated_user_id, updated_user_name, version, deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.name}, #{entity.code}, #{entity.sort}, #{entity.status}, #{entity.level}, #{entity.parentId}, #{entity.createdAt}, #{entity.updatedAt}, #{entity.createdUserId}, #{entity.createdUserName}, #{entity.updatedUserId}, #{entity.updatedUserName}, #{entity.version}, #{entity.deleted})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into product.ls_category(name, code, sort, status, level, parent_id, created_at, updated_at, created_user_id, created_user_name, updated_user_id, updated_user_name, version, deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.code}, #{entity.sort}, #{entity.status}, #{entity.level}, #{entity.parentId}, #{entity.createdAt}, #{entity.updatedAt}, #{entity.createdUserId}, #{entity.createdUserName}, #{entity.updatedUserId}, #{entity.updatedUserName}, #{entity.version}, #{entity.deleted})
+        </foreach>
+        on duplicate key update
+         name = values(name) , code = values(code) , sort = values(sort) , status = values(status) , level = values(level) , parent_id = values(parent_id) , created_at = values(created_at) , updated_at = values(updated_at) , created_user_id = values(created_user_id) , created_user_name = values(created_user_name) , updated_user_id = values(updated_user_id) , updated_user_name = values(updated_user_name) , version = values(version) , deleted = values(deleted)     </insert>
+
+</mapper>
+
