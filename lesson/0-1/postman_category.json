@@ -1,8 +1,8 @@
 {
   "info": {
-    "name": "类目后台API",
+    "name": "电商产品库API",
     "_postman_id": "12345678-1234-1234-1234-123456789012",
-    "description": "API collection for LsCategory backend",
+    "description": "API collection for 电商产品库",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -12,19 +12,11 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://127.0.0.1:8099/lsCategory/",
+          "raw": "http://127.0.0.1:8099/categories",
           "protocol": "http",
-          "host": [
-            "127",
-            "0",
-            "0",
-            "1"
-          ],
+          "host": ["127", "0", "0", "1"],
           "port": "8099",
-          "path": [
-            "lsCategory",
-            ""
-          ]
+          "path": ["categories"]
         }
       }
     },
@@ -34,30 +26,40 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://127.0.0.1:8099/lsCategory/:id",
+          "raw": "http://127.0.0.1:8099/categories/:id",
           "protocol": "http",
-          "host": [
-            "127",
-            "0",
-            "0",
-            "1"
-          ],
+          "host": ["127", "0", "0", "1"],
           "port": "8099",
-          "path": [
-            "lsCategory",
-            ":id"
-          ],
-          "variable": [
+          "path": ["categories", ":id"]
+        }
+      }
+    },
+    {
+      "name": "Search Categories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8099/categories/search?id=:id&name=:name",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8099",
+          "path": ["categories", "search"],
+          "query": [
             {
               "key": "id",
-              "value": "1"
+              "value": ":id"
+            },
+            {
+              "key": "name",
+              "value": ":name"
             }
           ]
         }
       }
     },
     {
-      "name": "Create Category",
+      "name": "Add Category",
       "request": {
         "method": "POST",
         "header": [
@@ -68,22 +70,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"name\": \"Category1\",\n  \"code\": \"1001\",\n  \"sort\": 1,\n  \"status\": 0,\n  \"level\": 3,\n  \"parentId\": 0,\n  \"createdUserId\": 1,\n  \"createdUserName\": \"User1\",\n  \"updatedUserId\": 1,\n  \"updatedUserName\": \"User1\",\n  \"version\": 1,\n  \"deleted\": 0\n}"
+          "raw": "{\n  \"name\": \"\",\n  \"level\": 0,\n  \"parentId\": 0,\n  \"path\": \"\",\n  \"status\": 1,\n  \"sort\": 0,\n  \"remarks\": \"\",\n  \"createId\": 0,\n  \"updateId\": 0,\n  \"createTime\": \"\",\n  \"updateTime\": \"\"\n}"
         },
         "url": {
-          "raw": "http://127.0.0.1:8099/lsCategory/",
+          "raw": "http://127.0.0.1:8099/categories",
           "protocol": "http",
-          "host": [
-            "127",
-            "0",
-            "0",
-            "1"
-          ],
+          "host": ["127", "0", "0", "1"],
           "port": "8099",
-          "path": [
-            "lsCategory",
-            ""
-          ]
+          "path": ["categories"]
         }
       }
     },
@@ -99,28 +93,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"name\": \"Category1 Updated\",\n  \"code\": \"1001\",\n  \"sort\": 1,\n  \"status\": 0,\n  \"level\": 3,\n  \"parentId\": 0,\n  \"createdUserId\": 1,\n  \"createdUserName\": \"User1\",\n  \"updatedUserId\": 1,\n  \"updatedUserName\": \"User1\",\n  \"version\": 1,\n  \"deleted\": 0\n}"
+          "raw": "{\n  \"id\": 0,\n  \"name\": \"\",\n  \"level\": 0,\n  \"parentId\": 0,\n  \"path\": \"\",\n  \"status\": 1,\n  \"sort\": 0,\n  \"remarks\": \"\",\n  \"createId\": 0,\n  \"updateId\": 0,\n  \"createTime\": \"\",\n  \"updateTime\": \"\"\n}"
         },
         "url": {
-          "raw": "http://127.0.0.1:8099/lsCategory/:id",
+          "raw": "http://127.0.0.1:8099/categories",
           "protocol": "http",
-          "host": [
-            "127",
-            "0",
-            "0",
-            "1"
-          ],
+          "host": ["127", "0", "0", "1"],
           "port": "8099",
-          "path": [
-            "lsCategory",
-            ":id"
-          ],
-          "variable": [
-            {
-              "key": "id",
-              "value": "1"
-            }
-          ]
+          "path": ["categories"]
         }
       }
     },
@@ -130,25 +110,11 @@
         "method": "DELETE",
         "header": [],
         "url": {
-          "raw": "http://127.0.0.1:8099/lsCategory/:id",
+          "raw": "http://127.0.0.1:8099/categories/:id",
           "protocol": "http",
-          "host": [
-            "127",
-            "0",
-            "0",
-            "1"
-          ],
+          "host": ["127", "0", "0", "1"],
           "port": "8099",
-          "path": [
-            "lsCategory",
-            ":id"
-          ],
-          "variable": [
-            {
-              "key": "id",
-              "value": "1"
-            }
-          ]
+          "path": ["categories", ":id"]
         }
       }
     }
