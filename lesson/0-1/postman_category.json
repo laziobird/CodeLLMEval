@@ -1,0 +1,156 @@
+{
+  "info": {
+    "name": "类目后台API",
+    "_postman_id": "12345678-1234-1234-1234-123456789012",
+    "description": "API collection for LsCategory backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Categories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8099/lsCategory/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8099",
+          "path": [
+            "lsCategory",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Category By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8099/lsCategory/:id",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8099",
+          "path": [
+            "lsCategory",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Category",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Category1\",\n  \"code\": \"1001\",\n  \"sort\": 1,\n  \"status\": 0,\n  \"level\": 3,\n  \"parentId\": 0,\n  \"createdUserId\": 1,\n  \"createdUserName\": \"User1\",\n  \"updatedUserId\": 1,\n  \"updatedUserName\": \"User1\",\n  \"version\": 1,\n  \"deleted\": 0\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8099/lsCategory/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8099",
+          "path": [
+            "lsCategory",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Category",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Category1 Updated\",\n  \"code\": \"1001\",\n  \"sort\": 1,\n  \"status\": 0,\n  \"level\": 3,\n  \"parentId\": 0,\n  \"createdUserId\": 1,\n  \"createdUserName\": \"User1\",\n  \"updatedUserId\": 1,\n  \"updatedUserName\": \"User1\",\n  \"version\": 1,\n  \"deleted\": 0\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8099/lsCategory/:id",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8099",
+          "path": [
+            "lsCategory",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Category",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8099/lsCategory/:id",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8099",
+          "path": [
+            "lsCategory",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

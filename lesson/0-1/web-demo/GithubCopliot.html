@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品类目管理</title>
+    <link rel="stylesheet" href="GithubCopliot.css">
+</head>
+<body>
+    <div class="container">
+        <h1>商品类目管理</h1>
+        <form id="searchForm">
+            <label for="searchId">ID:</label>
+            <input type="text" id="searchId" name="searchId">
+            <label for="searchName">名称:</label>
+            <input type="text" id="searchName" name="searchName">
+            <button type="submit">搜索</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>名称</th>
+                    <th>层级</th>
+                    <th>父类目ID</th>
+                    <th>路径</th>
+                    <th>状态</th>
+                    <th>排序</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="categoryTableBody">
+            </tbody>
+        </table>
+        <button id="addCategory">添加类目</button>
+    </div>
+    <script src="GithubCopliot.js"></script>
+</body>
+</html>

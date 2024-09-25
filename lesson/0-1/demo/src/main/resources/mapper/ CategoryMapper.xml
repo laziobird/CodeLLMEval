@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.next.ai.dao.CategoryDao">
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO category (name, level, parent_id, path, status, sort, remarks, create_id, update_id, create_time, update_time)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.name}, #{item.level}, #{item.parentId}, #{item.path}, #{item.status}, #{item.sort}, #{item.remarks}, #{item.createId}, #{item.updateId}, #{item.createTime}, #{item.updateTime})
+        </foreach>
+    </insert>
+
+</mapper>
