@@ -30,7 +30,7 @@ public class SearchTripController {
     @ResponseBody
     public SearchRS search(@RequestBody SearchRQ req, boolean noCache) throws InterruptedException, ExecutionException {
         //1、走缓存，查看相应的Key 生成规则，打印日志
-        String key = req.toString();
+        String key = req.getFromCity() + req.getToCity() + req.getFromDate();
         log.info("agent-hybird.ctrip.search.redis key:" + key);
 
 
