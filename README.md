@@ -6,8 +6,14 @@ Evaluation based on programming scenarios
 ## \[ English | [中文](README_zh.md) \]
 👋 Join our [WeChat](assets/wechat.jpg) 
 
-##Scoring mode
-###[High frequency defects - continuously updating] (high-frequency bugs/sample. json)
+## stackoverflow 2024 real sentiments behind the surge in AI popularity
+https://survey.stackoverflow.co/2024/ai#sentiment-and-usage
+
+![image](https://github.com/user-attachments/assets/c6a0ffee-65d5-4e80-a4f8-7ebe6ec57655)
+
+
+## Scoring mode
+### [High frequency defects - continuously updating] (high-frequency bugs/sample. json)
 |Defect scenario | Serious result | Test set case|
 | ----------------------------------------------------------------- | -------------------------------- | --------- |
 |Dead Loop | Severe cause CPU 100%, service crash | 2 |
@@ -19,3 +25,5 @@ Compare and evaluate the effectiveness
 ![loop](assets/loop.jpg)
 * Lookuping for multi threaded deadlock 
 * Memory leakage
+
+
