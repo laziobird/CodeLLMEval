@@ -29,7 +29,7 @@ public class SearchTripController {
     @RequestMapping(value = "/search", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public SearchRS search(@RequestBody SearchRQ req, boolean noCache) throws InterruptedException, ExecutionException {
-        //1、走缓存，查看相应的Key 生成规则，打印日志
+        //机票搜索数据先走缓存，根据查询条件先拿到缓存key，打印key值
         String key = ctripService.getCacheKey(req);
         log.info("agent-hybird.ctrip.search.redis key:" + key);
 
