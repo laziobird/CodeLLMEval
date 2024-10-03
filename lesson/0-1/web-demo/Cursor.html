@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>商品类目管理</title>
+    <link rel="stylesheet" href="Cursor.css">
+</head>
+<body>
+    <div class="container">
+        <h1>商品类目管理</h1>
+        <button id="openAddCategoryModal">添加类目</button>
+        <div id="categoryList">
+            <input type="text" id="searchId" placeholder="搜索ID">
+            <input type="text" id="searchName" placeholder="搜索名称">
+            <button onclick="search2()">搜索</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>名称</th>
+                        <th>层级</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="categoryTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<!-- 添加类目的弹出层 -->
+<div id="addCategoryModal" class="modal">
+    <div class="modal-content">
+        <h2>添加类目</h2>
+        <form id="categoryForm">
+            <input type="text" id="name" placeholder="类目名称" required>
+            <input type="number" id="level" placeholder="类目层级" min="1" max="3" required>
+            <input type="number" id="parentId" placeholder="父类目ID" value="0">
+            <input type="text" id="path" placeholder="类目路径">
+            <select id="status">
+                <option value="1">启用</option>
+                <option value="0">禁用</option>
+            </select>
+            <input type="number" id="sort" placeholder="排序权重">
+            <input type="text" id="remarks" placeholder="备注">
+            <button type="submit">添加类目</button>
+            <button type="button" id="closeAddCategoryModal">取消</button>
+        </form>
+    </div>
+</div>
+
+    <script src="Cursor.js"></script>
+</body>
+</html>
